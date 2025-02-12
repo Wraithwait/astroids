@@ -8,9 +8,17 @@ def main():
     # Initilization
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    clock = pygame.time.Clock()
+
+    # Variables
+    dt = 0
+    
+
+    # Messages
     print("Starting asteroids!")
     print(f"Screen width: {SCREEN_WIDTH}")
     print(f"Screen height: {SCREEN_HEIGHT}")
+
 
     # Gameplay Loop
 
@@ -21,10 +29,13 @@ def main():
 
         # Player Inputs
 
-        # Render the Display
+        # Render the Display    
         screen.fill((0,0,0))
 
         # Update the Game
+        dt = clock.tick(60) / 1000 # divide by 1000 miliseconds to convert to seconds.
+        fps = 1 / dt if dt > 0 else 0
+        print(f"Frames per second: {fps}")
         pygame.display.flip()
 
 if __name__ == "__main__":

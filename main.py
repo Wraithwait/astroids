@@ -2,8 +2,6 @@
 import pygame
 import constants
 from player import Player
-
-
 from constants import *
 
 def main():
@@ -31,9 +29,9 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-
-        # Player 
-        
+            
+        # Update the player
+        player.update(dt)
 
         # Render the Display    
         screen.fill((0,0,0))

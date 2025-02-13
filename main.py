@@ -1,6 +1,8 @@
 # Imports
 import pygame
 import constants
+from player import Player
+
 
 from constants import *
 
@@ -19,6 +21,9 @@ def main():
     print(f"Screen width: {SCREEN_WIDTH}")
     print(f"Screen height: {SCREEN_HEIGHT}")
 
+    # Player Initilization
+    player = Player((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))
+
 
     # Gameplay Loop
 
@@ -27,10 +32,14 @@ def main():
             if event.type == pygame.QUIT:
                 return
 
-        # Player Inputs
+        # Player 
+        
 
         # Render the Display    
         screen.fill((0,0,0))
+
+        # Render the Player
+        player.draw(screen)
 
         # Update the Game
         dt = clock.tick(60) / 1000 # divide by 1000 miliseconds to convert to seconds.

@@ -12,6 +12,13 @@ def main():
 
     # Variables
     dt = 0
+
+    # Groups
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+
+    # Containers
+    Player.containers = (updatable, drawable)
     
 
     # Messages
@@ -31,13 +38,14 @@ def main():
                 return
             
         # Update the player
-        player.update(dt)
+        updatable.update(dt)
 
         # Render the Display    
         screen.fill((0,0,0))
 
         # Render the Player
-        player.draw(screen)
+        for sprite in drawable:
+            sprite.draw(screen)
 
         # Update the Game
         dt = clock.tick(60) / 1000 # divide by 1000 miliseconds to convert to seconds.

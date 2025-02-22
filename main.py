@@ -78,7 +78,7 @@ def main():
                     print("Collision detected between bullet and asteroid")
                     #Remove both the bullet and asteroid upon collision
                     shot.kill()
-                    asteroid.kill()
+                    asteroid.split()
                  
 
         # Render the Display    
